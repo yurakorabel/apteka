@@ -1,0 +1,36 @@
+.flex-container {
+  width: 100%;
+  height: 300px;
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+.first {
+  background: #1E2939FF;
+  height: 300px;
+  flex-grow: 3;
+}
+
+.second {
+  background: green;
+  height: 300px;
+  flex-grow: 7;
+}
+.body_left_text{
+	background: #1E2939FF;
+	margin-left: 20px; 
+}
+p.zagolovok_left{
+	line-height: 1;
+	font-size: 15pt
+	font-style: bold;
+	font-family: Russo One, sans-serif;
+	color: white;
+}
+
+li{
+    color: orange;
+}
+li span{
+    color: white;
+}
