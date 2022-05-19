@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="assets/css/style.css">
+	<link rel="stylesheet" href="../assets/css/style.css">
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 	<title>Document</title>
 </head>
@@ -11,19 +11,30 @@
 
 	<div id="header">
 		<header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 p-3 border-bottom">
-	      <a href="index.php" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
-	      	<img src="assets/img/3248924.png" class="bi me-2" width="40" height="40">
+	      <a href="../index.php" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
+	      	<img src="../assets/img/3248924.png" class="bi me-2" width="40" height="40">
 	      	<h1 aria-label="Bootstrap">Аптека</h1>
 	      </a>
 	    </header>
 	</div>	
     
     <div>
-    	<div class="center">
-    		<button type="button" class="my_button btn btn-primary btn-lg" onclick="location.href='user/user.php';">Почати!</button>
-    		<p style="text-align: center;">
-    			<a href="login/log.php">Вхід</a>
-    		</p>
+    	<div class="center log">
+    		<form>
+			  <div class="form-group">
+			    <label for="exampleInputEmail1">Login</label>
+			    <input type="login" class="form-control" id="exampleInputEmail1" placeholder="Login">
+			  </div>
+			  <div class="form-group">
+			    <label for="exampleInputPassword1">Password</label>
+			    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+			  </div>
+			  <div class="form-check">
+			    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+			    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+			  </div>
+			  <button type="submit" class="btn btn-primary">Submit</button>
+			</form>
     	</div>
 	</div>
 
@@ -44,6 +55,7 @@
 		    </ul>
 		</footer>
 	</div>
+	<script src="../assets/js/script.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 </body>
 </html>

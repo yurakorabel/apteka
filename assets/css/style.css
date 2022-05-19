@@ -1,3 +1,30 @@
 *{
-	background-color: #272B33FF;
+	background-color: #fff;
+}
+html,
+body {
+	height: 100%;
+}
+.footer {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+}
+.center {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+.log{
+	width: 500px;
+}
+.my_button {
+    width: 194px;
+    height: 68px;
 }
