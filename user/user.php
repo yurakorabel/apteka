@@ -10,7 +10,7 @@
 <body>
 	<div id="header">
 		<header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 p-3 border-bottom">
-	      <a href="../index.php" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
+	      <a href="#" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
 	      	<img src="../assets/img/3248924.png" class="bi me-2" width="40" height="40">
 	      	<h1 aria-label="Bootstrap">Аптека</h1>
 	      </a>
@@ -21,7 +21,7 @@
 
     <div class="row m-0" style="height: auto;">
     	<div class="flex-shrink-0 pl-3 pt-3 bg-white col">
-		    <a href="/" class="d-flex align-items-center pb-3 mb-3 link-dark text-decoration-none border-bottom">
+		    <a href="#" class="d-flex align-items-center pb-3 mb-3 link-dark text-decoration-none border-bottom">
 		    	<img src="../assets/img/114903.png" class="bi pe-none me-2" width="30" height="24">
 		     	<span class="fs-5 fw-semibold">Асортимет</span>
 		    </a>
@@ -44,7 +44,7 @@
     <div id="footer">
 		<footer id="footer" class="d-flex flex-wrap justify-content-between align-items-center py-3 mb-4 border-top">
 		    <div class="col-md-4 d-flex align-items-center">
-		      <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
+		      <a href="#" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
 		        <svg class="bi" width="30" height="24"><use xlink:href="#bootstrap"></use></svg>
 		      </a>
 		      <span class="mb-3 mb-md-0 text-muted">© 2022 Company, Inc</span>

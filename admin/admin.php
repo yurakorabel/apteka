@@ -1,3 +1,13 @@
+<?php
+session_start();
+
+if (!$_SESSION) {
+    header('Location: ../login/log.php');
+}
+elseif ($_SESSION['user']['role'] != 1) {
+    header('Location: ../login/log.php');
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,5 +18,8 @@
 </head>
 <body>
 	<h1>Welcome to Admin Panel)</h1>
+    <?php
+        var_dump($_SESSION['user']);
+    ?>
 </body>
 </html>
