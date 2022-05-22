@@ -20,8 +20,7 @@
     
     <div>
     	<div class="center">
-<!--    	<button type="button" class="my_button btn btn-primary btn-lg" onclick="location.href='vendor/select_drug_list.php';">Почати!</button>-->
-            <button type="button" class="my_button btn btn-primary btn-lg" onclick="location.href='user/user.php';">Почати!</button>
+    	<button type="button" class="my_button btn btn-primary btn-lg" onclick="location.href='vendor/select_drug_list.php';">Почати!</button>
     		<p style="text-align: center;">
     			<a href="login/log.php">Вхід</a>
                  .

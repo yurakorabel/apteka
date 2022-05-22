@@ -15,9 +15,9 @@
 	      	<h1 aria-label="Bootstrap">Аптека</h1>
 	      </a>
 	    </header>
-	</div>	
-    
-    
+	</div>
+
+
 
     <div class="row m-0" style="height: auto;">
     	<div class="flex-shrink-0 pl-3 pt-3 bg-white col">
