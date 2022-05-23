@@ -1,3 +1,10 @@
+<?php
+    session_start();
+    unset($_SESSION['list']);
+    unset($_SESSION['divs']);
+    unset($_SESSION['count']);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,7 +27,7 @@
     
     <div>
     	<div class="center">
-    	<button type="button" class="my_button btn btn-primary btn-lg" onclick="location.href='vendor/select_drug_list.php';">Почати!</button>
+    	<button type="button" class="my_button btn btn-primary btn-lg" onclick="location.href='vendor/user/select_drug_list.php';">Почати!</button>
     		<p style="text-align: center;">
     			<a href="login/log.php">Вхід</a>
                  .

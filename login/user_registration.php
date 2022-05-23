@@ -25,7 +25,7 @@ unset($_SESSION['user']);
 
 <div>
     <div class="center log">
-        <form action="../vendor/registration.php" method="post">
+        <form action="../vendor/start/registration.php" method="post">
             <div class="form-group">
                 <label for="exampleInputEmail1">Прізвище</label>
                 <input type="text" class="form-control" id="surname" name="surname" placeholder="Введіть прізвище" required>

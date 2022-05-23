@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once "connect.php";
+require_once "../connect.php";
 
 //count of rows
 $sql = mysqli_query(
@@ -16,11 +16,11 @@ $a = 1;
 for ($i=1; $i <= $rows_count; $i++) {
     $sql = mysqli_query(
         $conn,
-        "SELECT `name`, `price` FROM `drug_sklad` JOIN `drug_info` ON `drug_info_id_info` = `id_info` WHERE `id_drug_sklad` = '$i' AND `drug_count` > 0"
+        "SELECT `name`, `price`, `id_info` FROM `drug_sklad` JOIN `drug_info` ON `drug_info_id_info` = `id_info` WHERE `id_drug_sklad` = '$i' AND `drug_count` > 0"
     );
     $row = mysqli_fetch_assoc($sql);
     if (!is_null($row)) {
-        $list .= '<li class="mb-1">' . $row['name'] . ' ціна - ' . $row['price'] . ' грн. ' . '<a href="#" id="el' . $a . '"' . '>+</a></li>';
+        $list .= '<li class="mb-1">' . $row['name'] . ' ціна - ' . $row['price'] . ' грн. ' . '<a href="#" id="el' . $a . '" name=" ' . $row['id_info'] . '">+</a></li>';
         $a += 1;
     }
 }
@@ -43,8 +43,10 @@ for ($i=1; $i <= $rows_count; $i++) {
 
 $_SESSION['list'] = $list;
 $_SESSION['divs'] = $div;
+//$_SESSION['divs2'] = $div2;
+$_SESSION['count'] = $b;
 
-header('Location: ../user/user.php');
+header('Location: ../../user/user.php');
 
 ?>
 

@@ -12,9 +12,13 @@ session_start();
 	<title>Document</title>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 	<script>
-		function clearBox(elementID)
+		function clearBox(elementID, element2ID)
 		{
 			document.getElementById(elementID).innerHTML = "";
+            document.getElementById(element2ID).innerHTML = "";
+            <?php
+            unset($_SESSION['order']);
+            ?>
 		}
 	</script>
 </head>
@@ -37,14 +41,7 @@ session_start();
 		     	<span class="fs-5 fw-semibold">Асортимет</span>
 		    </a>
 			<ul class="list-unstyled ps-0">
-				<li class="mb-1">Тест ціна - 10<a href="#" id="el1">+</a></li>
 				<?= $_SESSION['list'] ?>
-                <li class="mb-1">Тест ціна - 10<a href="#">+</a></li>
-<!--                <li class="mb-1">-->
-<!--                    Тест ціна - 10-->
-<!--                    <a href="#" data-toggle="popover" title="Popover Header" data-content="Text example!">інфо</a>-->
-<!--                    <a href="#">+</a>-->
-<!--                </li>-->
 		    </ul>
   		</div>
 
@@ -56,10 +53,28 @@ session_start();
 		      <span class="fs-5 fw-semibold">Корзина</span>
 		    </div>
 		    <div class="video list-group list-group-flush border-bottom" style="height: 700px; overflow: auto;">
-				<form action="../vendor/see.php" method="POST">
-					<?= $_SESSION['divs'] ?>
-					<button type="submit" style="width: 100%;">Send</button>
-				</form>
+                <form action="../vendor/user/send_order.php" method="post">
+                    <?= $_SESSION['divs'] ?>
+
+                    <button class="btn btn-primary m-3 mb-0" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                        Я зареєстрований в системі
+                    </button>
+                    <div class="collapse mt-1" id="collapseExample">
+                        <div class="card card-body">
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Номер Телефону</label>
+                                <input type="text" class="form-control" id="number" name="phone_number" placeholder="+380">
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary mt-3 login_btn">Відправити замовлення</button>
+                    <?php
+                    if (isset($_SESSION['message'])) {
+                        echo '<p> ' . $_SESSION['message'] . ' </p>';
+                    }
+                    unset($_SESSION['message']);
+                    ?>
+                </form>
 		    </div>
 	    </div>
     </div>
@@ -82,37 +97,30 @@ session_start();
 	</div>
 	<script>
 		window.onload = function () {
-
 			document.addEventListener("click", function (e) {
 				let elem = e.target;
 				let ids = elem.id;
-				let count = document.getElementsByClassName("el");
+                let idsb = elem.getAttribute('name');
+				let count = <?= $_SESSION['count'] ?>;
 
-				for(let i = 1; i <= 12; i++){
+				for(let i = 1; i <= count; i++){
 					if(ids == ('el' + i)){
-					$.ajax({
-					url: '../vendor/listing.php?id=' + i,
-					method: 'post',
-					dataType: 'html',
-					data: $(this).serialize(),
-					success: function(data){
-						$('#message' + i).html(data);
-					}
-						
-					});
+                        $.ajax({
+                            url: '../vendor/user/listing.php?id=' + i + '&name=' + idsb,
+                            dataType: 'html',
+                            data: $(this).serialize(),
+                            success: function(data){
+                                $('#message' + i).html(data);
+                                // $('#msg' + i).html(data);
+                            }
+                        });
+				    }
 				}
-				}
-				
-			});	
+			});
 		}
 	</script>
-<!--    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>-->
-<!--    <script>-->
-<!--        $(document).ready(function(){-->
-<!--            $('[data-toggle="popover"]').popover();-->
-<!--        });-->
-<!--    </script>-->
 	<script src="../assets/js/script.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
-</body>
+<!--    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>-->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </html>
