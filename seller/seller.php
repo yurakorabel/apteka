@@ -19,7 +19,7 @@ elseif ($_SESSION['user']['role'] != 0) {
 </head>
 <body>
 
-	<div id="header">
+	<div id="header" >
 		<header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 p-3 border-bottom">
 	      <a href="../index.php" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
 	      	<img src="../assets/img/3248924.png" class="bi me-2" width="40" height="40">
@@ -30,7 +30,7 @@ elseif ($_SESSION['user']['role'] != 0) {
     
     <main>
     	<div>
-	    	<div class="center log" id="midle">
+	    	<div class="centerr sel" id="midle">
 	    		<div class="list-group" style="margin-bottom: 65px;">
 	    			<?= $_SESSION['orders'] ?>
 	    
@@ -41,7 +41,7 @@ elseif ($_SESSION['user']['role'] != 0) {
                         echo '<p> ' . $_SESSION['message'] . ' </p>';
                     }
                     unset($_SESSION['message']);
-                    ?>
+                    ?> 			
 				</div>
 	    	</div>
 		</div>
@@ -49,7 +49,7 @@ elseif ($_SESSION['user']['role'] != 0) {
     
 
     
-    <div id="footer" class="footer1">
+    <div id="footer" class="footer">
 		<footer id="footer" class="d-flex flex-wrap justify-content-between align-items-center py-3 mb-4 border-top">
 		    <div class="col-md-4 d-flex align-items-center">
 		      <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
@@ -66,7 +66,7 @@ elseif ($_SESSION['user']['role'] != 0) {
 		</footer>
 	</div>
 	<script type="text/javascript">
-	   document.getElementById('midle').style.maxHeight = document.documentElement.scrollHeight - document.getElementById('header').scrollHeight - document.getElementById('footer').scrollHeight - 71 + 'px';
+	   /*document.getElementById('midle').style.maxHeight = document.documentElement.scrollHeight - document.getElementById('header').scrollHeight - document.getElementById('footer').scrollHeight - 101 + 'px';*/
 	</script>
 	<script src="../assets/js/script.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>

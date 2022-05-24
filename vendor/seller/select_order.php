@@ -62,10 +62,10 @@ else{
             $list .= '<li class="mb-1">Загальна ціна - ' . $check_info['order_price'] . '</li>';
             $list .= '</ul>';
 
-            $order_blocks .= '<div class="list-group-item">
+            $order_blocks .= '<div class="list-group-item" style="display: flex;flex-wrap: wrap;">
 	    				<p style="margin-right: 45px; margin-bottom: 0px;" class="btn btn-toggle collapsed p-0 d-inline-flex align-items-center" data-bs-target="#description' . $i . '" data-bs-toggle="collapse" aria-expanded="false">Замовлення №' . $i . '</p>
-	    				<a class="btn btn-primary" href="#">Редагувати</a>
-	    				<a class="btn btn-success" href="../vendor/seller/confirm_order.php?i=' . $i . '">Підтвердити</a>
+                        <div style="margin-left: auto;margin-bottom: 0;">
+	    				<a class="btn btn-success" href="../vendor/seller/confirm_order.php?i=' . $i . '">Підтвердити</a></div>
 	    				<div class="collapse" id="description' . $i . '">
 				          ' . $list . '
 				        </div>

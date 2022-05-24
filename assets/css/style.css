@@ -1,24 +1,14 @@
 *{
 	background-color: #fff;
 }
-/*html,
-body {
-	height: 100%;
-}*/
 html,
 body {
     height: 100%;
 }
-/*.footer {
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-}*/
 main {
     padding-bottom: 60px;
     padding-top: 60px;}
-.footer1 {
+.footer {
     position:fixed;
     left:0px;
     bottom:0px;
@@ -36,6 +26,10 @@ main {
   -o-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
 }
+.centerr {
+  margin-right: auto;
+  margin-left: auto;
+}
 .footer {
 	position: absolute;
 	left: 0;
@@ -44,6 +38,9 @@ main {
 }
 .log{
 	width: 450px;
+}
+.sel{
+    width: 500px;
 }
 .my_button {
     width: 194px;

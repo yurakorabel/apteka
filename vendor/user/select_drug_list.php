@@ -20,7 +20,17 @@ for ($i=1; $i <= $rows_count; $i++) {
     );
     $row = mysqli_fetch_assoc($sql);
     if (!is_null($row)) {
-        $list .= '<li class="mb-1">' . $row['name'] . ' ціна - ' . $row['price'] . ' грн. ' . '<a href="#" id="el' . $a . '" name=" ' . $row['id_info'] . '">+</a></li>';
+        $list .= '<li class="mb-1" style="display: flex;flex-wrap: wrap;margin-bottom: 15px;margin-top: 15px;">
+                    <p style="margin-bottom: 0;margin-right: 50px;width: 150px;" class="p-0 d-inline-flex align-items-center">
+                    ' . $row['name'] . '
+                    </p>
+                    <label class="p-0 d-inline-flex align-items-center">
+                        ціна - ' . $row['price'] . ' грн. ' . '
+                    </label>
+                    <p style="margin-left: auto;margin-bottom: 0;">
+                        <a class="btn btn-outline-primary d-inline-flex p-1 align-items-center" style="text-align: right;" href="#" id="el' . $a . '" name=" ' . $row['id_info'] . '">Додати</a>
+                    </p>
+                </li>';
         $a += 1;
     }
 }

@@ -47,39 +47,34 @@ session_start();
 
 
 
-		<div class="d-flex flex-column align-items-stretch flex-shrink-0 bg-white col-5">
+		<div class="d-flex flex-column align-items-stretch flex-shrink-0 bg-white col-5" id="items">
 		    <div id="koz" class="d-flex align-items-center flex-shrink-0 p-3 text-decoration-none border-bottom">
 		      <img src="../assets/img/Cart-PNG-HD-Quality.png" class="bi pe-none me-2" width="30" height="24">
 		      <span class="fs-5 fw-semibold">Корзина</span>
 		    </div>
-		    <div class="video list-group list-group-flush border-bottom" style="height: 700px; overflow: auto;">
+		    <div class="video list-group list-group-flush border-bottom" id="item" style="overflow: auto;">
                 <form action="../vendor/user/send_order.php" method="post">
                     <?= $_SESSION['divs'] ?>
-
-                    <button class="btn btn-primary m-3 mb-0" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-                        Я зареєстрований в системі
-                    </button>
-                    <div class="collapse mt-1" id="collapseExample">
-                        <div class="card card-body">
-                            <div class="form-group">
-                                <label for="exampleInputPassword1">Номер Телефону</label>
-                                <input type="text" class="form-control" id="number" name="phone_number" placeholder="+380">
-                            </div>
-                        </div>
-                    </div>
-                    <button type="submit" class="btn btn-primary mt-3 login_btn">Відправити замовлення</button>
                     <?php
                     if (isset($_SESSION['message'])) {
-                        echo '<p> ' . $_SESSION['message'] . ' </p>';
+                        echo '<p class=""> ' . $_SESSION['message'] . ' </p>';
                     }
                     unset($_SESSION['message']);
                     ?>
-                </form>
+                    <div id="submit" style="position:fixed;bottom: 65px;">
+			            <div style="display: flex;flex-wrap: wrap;">
+			                <input type="text" class="form-control" id="number" name="phone_number" placeholder="+380"> 
+			                <button id="test"style="margin-left: auto;" class="btn btn-primary mb-0" type="button">Отримати знижку</button>
+			            </div>
+			            <button type="submit" class="btn btn-primary mt-3 login_btn">Відправити замовлення</button>
+		            </div>
+                </form>  
 		    </div>
+		    
 	    </div>
     </div>
 
-    <div id="footer">
+    <div id="footer" class="footer">
 		<footer id="footer" class="d-flex flex-wrap justify-content-between align-items-center py-3 mb-4 border-top">
 		    <div class="col-md-4 d-flex align-items-center">
 		      <a href="#" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
@@ -118,6 +113,11 @@ session_start();
 				}
 			});
 		}
+	</script>
+	<script type="text/javascript">
+		document.getElementById('submit').style.width = document.getElementById('item').scrollWidth + 'px';
+	   	document.getElementById('item').style.height = document.documentElement.scrollHeight - document.getElementById('header').scrollHeight - document.getElementById('footer').scrollHeight - document.getElementById('koz').scrollHeight - document.getElementById('submit').scrollHeight + 'px';
+	   	document.getElementById('number').style.width = document.getElementById('item').scrollWidth - document.getElementById('test').scrollWidth - 25 + 'px';
 	</script>
 	<script src="../assets/js/script.js"></script>
 <!--    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>-->
