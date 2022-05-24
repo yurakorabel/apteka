@@ -9,7 +9,7 @@ session_start();
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="../assets/css/style.css">
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-	<title>Document</title>
+	<title>Apteka</title>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 	<script>
 		function clearBox(elementID, element2ID)
@@ -64,13 +64,13 @@ session_start();
                     <div id="submit" style="position:fixed;bottom: 65px;">
 			            <div style="display: flex;flex-wrap: wrap;">
 			                <input type="text" class="form-control" id="number" name="phone_number" placeholder="+380"> 
-			                <button id="test"style="margin-left: auto;" class="btn btn-primary mb-0" type="button">Отримати знижку</button>
+			                <button id="test"style="margin-left: auto;" class="btn btn-primary mb-0 disabled" type="button">Отримати знижку</button>
 			            </div>
 			            <button type="submit" class="btn btn-primary mt-3 login_btn">Відправити замовлення</button>
 		            </div>
-                </form>  
+                </form>
 		    </div>
-		    
+
 	    </div>
     </div>
 

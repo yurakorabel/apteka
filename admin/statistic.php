@@ -51,7 +51,7 @@ $orders_for_mounth = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM `check` 
 		<header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 p-3 border-bottom">
 	      <a href="admin.php" id="1" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
 	      	<img src="../assets/img/3248924.png" class="bi me-2" width="40" height="40">
-	      	<h1 aria-label="Bootstrap">Панель</h1>
+	      	<h1 aria-label="Bootstrap">Адмін Панель</h1>
 	      </a>
         <ul class="nav nav-pills">
             <li class="nav-item"><a href="admin.php" class="nav-link" aria-current="page">Касири</a></li>
@@ -64,21 +64,22 @@ $orders_for_mounth = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM `check` 
 
     <main style="max-width: 1000px; margin: 0 auto;">
         <table class="table table-hover table-bordered">
-        <thead class="thead-dark">
-            <tr>
-            <th scope="col">Загальна виручка</th>
-            <th scope="col">Загальна к-сть замовлень</th>
-            <th scope="col">Виручка за місяць</th>
-            <th scope="col">К-сть замовлень за місяць</th>
-            </tr>
-        </thead>
-        <tbody>
+            <thead class="thead-dark">
+                <tr>
+                <th scope="col">Загальна виручка</th>
+                <th scope="col">Загальна к-сть замовлень</th>
+                <th scope="col">Виручка за місяць</th>
+                <th scope="col">К-сть замовлень за місяць</th>
+                </tr>
+            </thead>
+            <tbody>
                 <td><?=$all . ' грн'?></td>
                 <td><?=$all_orders?></td>
                 <td><?=$all_for_mounth . ' грн'?></td>
                 <td><?=$orders_for_mounth?></td>
             </tbody>
         </table>
+        <button type="submit" class="btn btn-success" onclick="location.href='../vendor/admin/orders/truncate_order.php';" style="margin-top: 16px; width: 100%; border-radius: 0;">Очистити всі замовлення</button>
         </main>
     <div id="footer" class="footer">
         <footer id="footer" class="d-flex flex-wrap justify-content-between align-items-center py-3 mb-4 border-top">

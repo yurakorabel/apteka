@@ -31,7 +31,7 @@ $discount = mysqli_fetch_assoc($discount);
 		<header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 p-3 border-bottom">
 	      <a href="admin.php" id="1" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
 	      	<img src="../assets/img/3248924.png" class="bi me-2" width="40" height="40">
-	      	<h1 aria-label="Bootstrap">Панель</h1>
+	      	<h1 aria-label="Bootstrap">Адмін Панель</h1>
 	      </a>
         <ul class="nav nav-pills">
             <li class="nav-item"><a href="admin.php" class="nav-link" aria-current="page">Касири</a></li>

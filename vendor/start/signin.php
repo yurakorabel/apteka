@@ -35,7 +35,7 @@ if ($password == $password2) {
     }
 }
 else {
-    $_SESSION['message'] = "Not the correct login or password!";
+    $_SESSION['message'] = "Неправильний логін або пароль!";
     header('Location: ../../login/log.php');
 }
 ?>
