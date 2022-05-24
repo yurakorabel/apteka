@@ -1,3 +1,13 @@
+<?php
+session_start();
+
+if (is_null($_SESSION['user'])) {
+    header('Location: ../login/log.php');
+}
+elseif ($_SESSION['user']['role'] != 0) {
+    header('Location: ../login/log.php');
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,7 +15,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="../assets/css/style.css">
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-	<title>Document</title>
+	<title>Seller</title>
 </head>
 <body>
 
@@ -22,16 +32,16 @@
     	<div>
 	    	<div class="center log" id="midle">
 	    		<div class="list-group" style="margin-bottom: 65px;">
-	    			<div class="list-group-item"> 
-	    				<p style="margin-right: 45px; margin-bottom: 0px;" class="btn btn-toggle collapsed p-0 d-inline-flex align-items-center" data-bs-target="#description" data-bs-toggle="collapse" aria-expanded="false">Замовлення №1</p>
-	    				<button type="button" class="btn btn-primary" onclick="location.href='vendor/select_drug_list.php';">Редагувати</button>
-	    				<button type="button" class="btn btn-success" onclick="location.href='vendor/select_drug_list.php';">Підтвердити</button>
-	    				<div class="collapse" id="description">
-				          Привіт
-				        </div>
-	    			</div>
+	    			<?= $_SESSION['orders'] ?>
 	    
-	    			<button type="button" class="btn btn-primary mt-3" onclick="location.href='../user/user.php';">Додати</button>
+	    			<button type="button" class="btn btn-primary mt-3" onclick="location.href='../vendor/user/select_drug_list.php';">Додати</button>
+                    <button type="button" class="btn btn-primary mt-3" onclick="location.href='../vendor/seller/select_order.php';">Оновити</button>
+                    <?php
+                    if (isset($_SESSION['message'])) {
+                        echo '<p> ' . $_SESSION['message'] . ' </p>';
+                    }
+                    unset($_SESSION['message']);
+                    ?>
 				</div>
 	    	</div>
 		</div>

@@ -29,19 +29,6 @@ if (count($_POST) > 1) {
 				VALUES ('$drug_count', '$id_info', '$id_info', '$check_id')"
                 );
 
-//                $drug_count_db = mysqli_query(
-//                    $conn,
-//                    "SELECT `drug_count` FROM `drug_sklad` WHERE `id_drug_sklad` = '$id_info'"
-//                );
-//                $drug_count_db = mysqli_fetch_assoc($drug_count_db);
-//                $drug_count_db = $drug_count_db['drug_count'];
-//                $drug_count_db = $drug_count_db - $drug_count;
-//
-//                mysqli_query(
-//                    $conn,
-//                    "UPDATE `drug_sklad` SET `drug_count`='$drug_count_db' WHERE `id_drug_sklad` = '$id_info'"
-//                );
-
                 $price = mysqli_query(
                     $conn,
                     "SELECT `price` FROM `drug_sklad` WHERE `id_drug_sklad` = '$id_info'"
@@ -55,8 +42,17 @@ if (count($_POST) > 1) {
             $conn,
             "UPDATE `check` SET `order_price`='$total_price' WHERE `id_check` = '$check_id'"
         );
-        $_SESSION['message'] = "Замовлення відправлено!";
-        header('Location: ../../user/user.php');
+
+        if (!is_null($_SESSION['user'])) {
+            if ($_SESSION['user']['role'] == 0){
+                $_SESSION['message'] = "Замовлення cформовано!";
+                header('Location: ../seller/select_order.php');
+            }
+        }
+        else {
+            $_SESSION['message'] = "Замовлення відправлено!";
+            header('Location: ../../user/user.php');
+        }
     }
 }
 else {

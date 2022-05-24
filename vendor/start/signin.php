@@ -23,7 +23,7 @@ if ($password == $password2) {
             "name" => $worker['name'],
             "role" => $worker['role']
         ];
-        header('Location: ../../seller/seller.php');
+        header('Location: ../seller/select_order.php');
     }
     elseif ($worker['role'] == 1) {
         $_SESSION['user'] = [

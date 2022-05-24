@@ -3,6 +3,7 @@
     unset($_SESSION['list']);
     unset($_SESSION['divs']);
     unset($_SESSION['count']);
+    unset($_SESSION['user']);
 ?>
 
 <!DOCTYPE html>
