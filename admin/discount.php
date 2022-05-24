@@ -1,4 +1,6 @@
 <?php
+require '../vendor/connect.php';
+
 session_start();
 
 if (!$_SESSION) {
@@ -7,13 +9,13 @@ if (!$_SESSION) {
 elseif ($_SESSION['user']['role'] != 1) {
     header('Location: ../login/log.php');
 }
+
 error_reporting(0);
 
-require '../vendor/connect.php';
+$discount = mysqli_query($conn, "SELECT `value` FROM `discount`");
 
-$sellers = mysqli_query($conn, "SELECT * FROM `worker` WHERE `role` = '0'");
+$discount = mysqli_fetch_assoc($discount);
 
-$sellers = mysqli_fetch_all($sellers);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -32,47 +34,22 @@ $sellers = mysqli_fetch_all($sellers);
 	      	<h1 aria-label="Bootstrap">Панель</h1>
 	      </a>
         <ul class="nav nav-pills">
-            <li class="nav-item"><a href="admin.php" class="nav-link active" aria-current="page">Касири</a></li>
+            <li class="nav-item"><a href="admin.php" class="nav-link" aria-current="page">Касири</a></li>
             <li class="nav-item"><a href="drugs.php" class="nav-link">Ліки</a></li>
-            <li class="nav-item"><a href="discount.php" class="nav-link">Система знижок</a></li>
+            <li class="nav-item"><a href="discount.php" class="nav-link active">Система знижок</a></li>
             <li class="nav-item"><a href="#" class="nav-link">Статистика</a></li>
         </ul>
 	    </header>
-	</div>
-    <main style="max-width: 1000px; margin: 0 auto;">
-        <table class="table table-hover table-bordered">
-        <thead class="thead-dark">
-            <tr>
-            <th scope="col">ID</th>
-            <th scope="col">Ім'я</th>
-            <th scope="col">Прізвище</th>
-            <th scope="col">Логін</th>
-            <th scope="col">Пароль</th>
-            <th scope="col">Редагування</th>
-            <th scope="col">Видалення</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php
-                foreach($sellers as $seller){
-                    ?>
-                    <tr>
-                        <th scope="row"><?=$seller[0]?></th>
-                        <td><?=$seller[4]?></td>
-                        <td><?=$seller[3]?></td>
-                        <td><?=$seller[1]?></td>
-                        <td><?=$seller[2]?></td>
-                        <td><a href="../vendor/admin/seller/edit.php?id=<?=$seller[0]?>">Редагувати</a></td>
-                        <td><a href="../vendor/admin/seller/delete.php?id=<?=$seller[0]?>">Видалити</a></td>
-                    </tr>
-                    <?php
-                }
-            ?>
-        </tbody>
-        </table>
+    </div>
 
-        <a type="button" class="btn btn-success" style="width: 100%; border-radius: 0;" href="../vendor/admin/seller/add.php">Створити касира</a>
-    </main> 
+    <form style="max-width: 1000px; margin: 0 auto;" action="../vendor/admin/discount/discount_add.php" method="POST">
+    <div class="form-group">
+        <label for="exampleInputPassword1">Знижка</label>
+        <input type="number" class="form-control" id="exampleInputPassword1" name="discount" placeholder="Поточна знижка: <?=$discount['value']?>" required>
+    </div>
+    <button type="submit" class="btn btn-success" style="margin-top: 16px; width: 100%; border-radius: 0;">Оновити</button>
+    </form>
+
     <?php
         if($_SESSION['check'] == 1){
             ?>
@@ -84,10 +61,14 @@ $sellers = mysqli_fetch_all($sellers);
             <script>alert("Помилка")</script>
             <?php
             unset($_SESSION['check']);
+        }elseif($_SESSION['check'] == 3){
+            ?>
+            <script>alert("Помилка! Значення не може бути більше 100")</script>
+            <?php
+            unset($_SESSION['check']);
         }
     ?>
-
 <script src="../assets/js/script.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>   
 </body>
-</html>
+</html>  
