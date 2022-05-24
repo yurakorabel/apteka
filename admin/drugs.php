@@ -42,40 +42,43 @@ $drugs = mysqli_fetch_all($drugs);
 	    </header>
     </div>
     <main style="max-width: 1000px; margin: 0 auto;">
-        <table class="table table-hover table-bordered">
-        <thead class="thead-dark">
-            <tr>
-            <th scope="col">ID</th>
-            <th scope="col">Назва</th>
-            <th scope="col">Ціна</th>
-            <th scope="col">Група</th>
-            <th scope="col">К-сть</th>
-            <th scope="col">Дата постачання</th>
-            <th scope="col">Редагування</th>
-            <th scope="col">Видалення</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php
-                foreach($drugs as $drug){
-                    ?>
-                    <tr>
-                        <th scope="row"><?=$drug[0]?></th>
-                        <td><?=$drug[1]?></td>
-                        <td><?=$drug[2]?></td>
-                        <td><?=$drug[3]?></td>
-                        <td><?=$drug[4]?></td>
-                        <td><?=$drug[5]?></td>
-                        <td><a href="../vendor/admin/drugs/edit.php?id=<?=$drug[0]?>">Редагувати</a></td>
-                        <td><a href="../vendor/admin/drugs/deleting.php?id=<?=$drug[0]?>">Видалити</a></td>
-                    </tr>
-                    <?php
-                }
-            ?>
-        </tbody>
-        </table>
+        <div style="margin-bottom: 65px;">
+            <table class="table table-hover table-bordered">
+            <thead class="thead-dark">
+                <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Назва</th>
+                <th scope="col">Ціна</th>
+                <th scope="col">Група</th>
+                <th scope="col">К-сть</th>
+                <th scope="col">Дата постачання</th>
+                <th scope="col">Редагування</th>
+                <th scope="col">Видалення</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                    foreach($drugs as $drug){
+                        ?>
+                        <tr>
+                            <th scope="row"><?=$drug[0]?></th>
+                            <td><?=$drug[1]?></td>
+                            <td><?=$drug[2]?></td>
+                            <td><?=$drug[3]?></td>
+                            <td><?=$drug[4]?></td>
+                            <td><?=$drug[5]?></td>
+                            <td><a href="../vendor/admin/drugs/edit.php?id=<?=$drug[0]?>">Редагувати</a></td>
+                            <td><a href="../vendor/admin/drugs/deleting.php?id=<?=$drug[0]?>">Видалити</a></td>
+                        </tr>
+                        <?php
+                    }
+                ?>
+            </tbody>
+            </table>
 
-        <a type="button" class="btn btn-success" style="width: 100%; border-radius: 0;" href="../vendor/admin/drugs/add.php">Додати лікарство</a>
+            <a type="button" class="btn btn-success" style="width: 100%; border-radius: 0;" href="../vendor/admin/drugs/add.php">Додати лікарство</a>
+        </div>
+        
     </main>  
     <?php
         if($_SESSION['check'] == 1){
