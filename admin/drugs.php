@@ -37,7 +37,7 @@ $drugs = mysqli_fetch_all($drugs);
             <li class="nav-item"><a href="admin.php" class="nav-link" aria-current="page">Касири</a></li>
             <li class="nav-item"><a href="drugs.php" class="nav-link active">Ліки</a></li>
             <li class="nav-item"><a href="discount.php" class="nav-link">Система знижок</a></li>
-            <li class="nav-item"><a href="#" class="nav-link">Статистика</a></li>
+            <li class="nav-item"><a href="statistic.php" class="nav-link">Статистика</a></li>
         </ul>
 	    </header>
     </div>
