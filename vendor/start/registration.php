@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once "connect.php";
+require_once "../connect.php";
 
 $surname = $_POST['surname'];
 $name = $_POST['name'];
@@ -18,11 +18,11 @@ if ($check == 0) {
 				VALUES ('$surname', '$name', '$number')"
     );
 
-    header('Location: ../index.php');
+    header('Location: ../../index.php');
 }
 else{
     $_SESSION['message'] = "Цей номер телефону вже є в базі!";
-    header('Location: ../login/user_registration.php');
+    header('Location: ../../login/user_registration.php');
 }
 
 ?>

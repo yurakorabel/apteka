@@ -25,7 +25,7 @@ unset($_SESSION['user']);
     
     <div>
     	<div class="center log">
-    		<form action="../vendor/signin.php" method="post">
+    		<form action="../vendor/start/signin.php" method="post">
 			  <div class="form-group">
 			    <label for="exampleInputEmail1">Login</label>
 			    <input type="login" class="form-control" id="exampleInputEmail1" name="login" placeholder="Login" required>

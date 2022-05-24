@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once "connect.php";
+require_once "../connect.php";
 
 $login = $_POST['login'];
 $password = $_POST['password'];
@@ -23,7 +23,7 @@ if ($password == $password2) {
             "name" => $worker['name'],
             "role" => $worker['role']
         ];
-        header('Location: ../seller/seller.php');
+        header('Location: ../seller/select_order.php');
     }
     elseif ($worker['role'] == 1) {
         $_SESSION['user'] = [
@@ -31,11 +31,11 @@ if ($password == $password2) {
             "name" => $worker['name'],
             "role" => $worker['role']
         ];
-        header('Location: ../admin/admin.php');
+        header('Location: ../../admin/admin.php');
     }
 }
 else {
     $_SESSION['message'] = "Not the correct login or password!";
-    header('Location: ../login/log.php');
+    header('Location: ../../login/log.php');
 }
 ?>
